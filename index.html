@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Para el Amor de mi Vida ❤️</title>
+    <title>Para Raquel ❤️</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
       * {
         margin: 0;
@@ -12,331 +18,287 @@
       }
 
       body {
+        font-family: "Poppins", sans-serif;
+        background: black;
         height: 100vh;
-        background: linear-gradient(
-          135deg,
-          #ff9a9e 0%,
-          #fad0c4 50%,
-          #ffecd2 100%
-        );
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
         overflow: hidden;
-        position: relative;
-      }
-
-      /* Sección de texto superior */
-      .texto-superior {
-        position: absolute;
-        top: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
-        z-index: 10;
-        max-width: 90%;
-        animation: aparecer 3s ease-in-out;
-      }
-
-      .titulo {
-        font-size: 1.5rem;
-        color: #d63384;
-        font-weight: bold;
-        margin-bottom: 15px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      .poema {
-        font-size: 1rem;
-        color: #c2185b;
-        line-height: 1.8;
-        font-style: italic;
-        margin-bottom: 15px;
-      }
-
-      .firma {
-        font-size: 1.3rem;
-        color: #e91e63;
-        font-weight: bold;
-        margin-top: 15px;
-      }
-
-      @keyframes aparecer {
-        0% {
-          opacity: 0;
-          transform: translateX(-50%) translateY(-20px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateX(-50%) translateY(0);
-        }
-      }
-
-      /* Contenedor del árbol */
-      .arbol-container {
-        flex: 1;
-        position: relative;
-        width: 100%;
-        height: 60%;
         display: flex;
         justify-content: center;
         align-items: center;
+        color: white;
       }
 
-      /* Tronco del árbol */
-      .tronco {
+      /* FONDO TIKTOK */
+      .background {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at center, #660000 0%, #000000 70%);
+        z-index: -2;
+      }
+
+      .glow {
         position: absolute;
-        bottom: 5%;
-        width: 30px;
-        height: 150px;
-        background: linear-gradient(90deg, #8b4513 0%, #a0522d 100%);
-        border-radius: 15px;
-        box-shadow: inset -2px 0 5px rgba(0, 0, 0, 0.3);
+        width: 500px;
+        height: 500px;
+        background: red;
+        border-radius: 50%;
+        filter: blur(180px);
+        animation: pulse 5s infinite ease-in-out;
       }
 
-      /* Corazones que caen */
-      .corazon {
-        position: absolute;
-        font-size: 2rem;
-        opacity: 0.9;
-        animation: caer 3s infinite;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-      }
-
-      @keyframes caer {
+      @keyframes pulse {
         0% {
-          transform: translateY(-400px) rotate(0deg) scale(1);
-          opacity: 1;
+          transform: scale(1);
+          opacity: 0.6;
         }
-        70% {
-          opacity: 1;
+        50% {
+          transform: scale(1.3);
+          opacity: 0.3;
         }
         100% {
-          transform: translateY(400px) rotate(360deg) scale(0.5);
-          opacity: 0;
+          transform: scale(1);
+          opacity: 0.6;
         }
       }
 
-      /* Diferentes delays para que caigan en secuencia */
-      .corazon:nth-child(1) {
-        animation-delay: 0s;
-        left: -50px;
-      }
-      .corazon:nth-child(2) {
-        animation-delay: 0.2s;
-        left: -30px;
-      }
-      .corazon:nth-child(3) {
-        animation-delay: 0.4s;
-        left: -10px;
-      }
-      .corazon:nth-child(4) {
-        animation-delay: 0.6s;
-        left: 10px;
-      }
-      .corazon:nth-child(5) {
-        animation-delay: 0.8s;
-        left: 30px;
-      }
-      .corazon:nth-child(6) {
-        animation-delay: 1s;
-        left: 50px;
-      }
-      .corazon:nth-child(7) {
-        animation-delay: 1.2s;
-        left: -40px;
-      }
-      .corazon:nth-child(8) {
-        animation-delay: 1.4s;
-        left: -20px;
-      }
-      .corazon:nth-child(9) {
-        animation-delay: 1.6s;
-        left: 20px;
-      }
-      .corazon:nth-child(10) {
-        animation-delay: 1.8s;
-        left: 40px;
-      }
-      .corazon:nth-child(11) {
-        animation-delay: 2s;
-        left: -60px;
-      }
-      .corazon:nth-child(12) {
-        animation-delay: 2.2s;
-        left: 60px;
+      /* TEXTO CENTRAL */
+      .scene {
+        position: absolute;
+        text-align: center;
+        width: 90%;
+        max-width: 500px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 1.5s ease;
       }
 
-      /* Contador en el borde inferior */
-      .contador-container {
+      .scene.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 600;
+      }
+
+      .big {
+        font-size: 2.4rem;
+        font-weight: 800;
+        color: #ff0000;
+      }
+
+      .footer {
         position: absolute;
-        bottom: 30px;
+        bottom: 20px;
         left: 50%;
         transform: translateX(-50%);
-        background: rgba(255, 255, 255, 0.9);
-        padding: 20px 40px;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        backdrop-filter: blur(10px);
-        z-index: 20;
-      }
-
-      .contador-titulo {
         font-size: 0.9rem;
-        color: #d63384;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-
-      .contador {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .tiempo-item {
+        opacity: 0.7;
         text-align: center;
       }
 
-      .tiempo-numero {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #e91e63;
-        display: block;
-      }
-
-      .tiempo-label {
-        font-size: 0.8rem;
-        color: #c2185b;
+      .countdown {
+        font-size: 1.1rem;
+        color: #ff6b9d;
         font-weight: 600;
-        margin-top: 5px;
+        margin-top: 10px;
+        opacity: 0;
+        transition: opacity 2s ease;
       }
 
-      @media (max-width: 768px) {
-        .titulo {
-          font-size: 1.2rem;
-        }
+      .countdown.show {
+        opacity: 1;
+      }
 
-        .poema {
-          font-size: 0.9rem;
-        }
+      /* FOTO FINAL */
+      .photo-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 3s ease;
+        z-index: 10;
+      }
 
-        .contador-container {
-          padding: 15px 20px;
-          bottom: 20px;
-        }
+      .photo-container.show {
+        opacity: 1;
+      }
 
-        .tiempo-numero {
-          font-size: 1.5rem;
-        }
+      .photo-container img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 20px;
+        box-shadow: 0 0 50px rgba(255, 0, 0, 0.8);
+        animation: photoFloat 4s ease-in-out infinite;
+      }
 
-        .tiempo-label {
-          font-size: 0.7rem;
+      @keyframes photoFloat {
+        0%,
+        100% {
+          transform: scale(1) translateY(0);
+        }
+        50% {
+          transform: scale(1.05) translateY(-10px);
+        }
+      }
+
+      .photo-text {
+        position: absolute;
+        bottom: 50px;
+        text-align: center;
+        font-size: 1.3rem;
+        color: #ff69b4;
+        font-weight: 600;
+        animation: pulse-text 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse-text {
+        0%,
+        100% {
+          opacity: 0.7;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      /* CORAZONES */
+      .heart {
+        position: absolute;
+        font-size: 20px;
+        animation: floatUp 6s linear infinite;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh);
+          opacity: 0;
         }
       }
     </style>
   </head>
   <body>
-    <!-- Sección de texto superior con animación -->
-    <div class="texto-superior">
-      <div class="titulo">Para el amor de mi vida</div>
-      <div class="poema">
-        Si pudiera elegir un lugar seguro<br />
-        sería a tu lado<br />
-        <br />
-        Cuanto más tiempo estoy contigo<br />
-        más te amo
-      </div>
-      <div class="firma">Te amo gorda! ❤️</div>
+    <div class="background"></div>
+    <div class="glow"></div>
+
+    <div class="scene active" id="scene1">
+      <h1>Para el amor de mi vida...</h1>
     </div>
 
-    <!-- Contenedor principal del árbol -->
-    <div class="arbol-container">
-      <!-- Tronco del árbol -->
-      <div class="tronco"></div>
-
-      <!-- Corazones que caen -->
-      <div class="corazon">❤️</div>
-      <div class="corazon">❤️</div>
-      <div class="corazon">❤️</div>
-      <div class="corazon">❤️</div>
-      <div class="corazon">❤️</div>
-      <div class="corazon">❤️</div>
-      <div class="corazon">❤️</div>
-      <div class="corazon">❤️</div>
-      <div class="corazon">❤️</div>
-      <div class="corazon">❤️</div>
-      <div class="corazon">❤️</div>
-      <div class="corazon">❤️</div>
+    <div class="scene" id="scene2">
+      <h1>Si pudiera elegir un lugar seguro,<br />sería a tu lado.</h1>
     </div>
 
-    <!-- Contador de noviazgo en el borde inferior -->
-    <div class="contador-container">
-      <div class="contador-titulo">Juntos desde:</div>
-      <div class="contador">
-        <div class="tiempo-item">
-          <span class="tiempo-numero" id="dias">0</span>
-          <div class="tiempo-label">Días</div>
-        </div>
-        <div class="tiempo-item">
-          <span class="tiempo-numero" id="horas">0</span>
-          <div class="tiempo-label">Horas</div>
-        </div>
-        <div class="tiempo-item">
-          <span class="tiempo-numero" id="minutos">0</span>
-          <div class="tiempo-label">Minutos</div>
-        </div>
-        <div class="tiempo-item">
-          <span class="tiempo-numero" id="segundos">0</span>
-          <div class="tiempo-label">Segundos</div>
-        </div>
-      </div>
+    <div class="scene" id="scene3">
+      <h1>Cuanto más tiempo estoy contigo<br />más te amo.</h1>
     </div>
+
+    <div class="scene" id="scene4">
+      <h1>Eres mi razón de sonreír<br />cada mañana 😍</h1>
+    </div>
+
+    <div class="scene" id="scene5">
+      <h1>Contigo quiero envejecer<br />y vivir infinitos momentos ✨</h1>
+    </div>
+
+    <div class="scene" id="scene6">
+      <h1 class="big">Te amo gorda! 💕</h1>
+    </div>
+
+    <div class="footer">
+      <div>Raquel Ramirez 🖤</div>
+      <div class="countdown" id="countdown"></div>
+    </div>
+
+    <div class="photo-container" id="photoContainer">
+      <!-- AGREGÁ LA URL DE VUESTRA FOTO AQUÍ -->
+      <img src="/img1.jpg" alt="Nosotros" id="couplePhoto" />
+      <div class="photo-text">Te amo infinitamente 💗</div>
+    </div>
+
+    <audio id="music" autoplay>
+      <!-- CAMBÍA POR TU CANCIÓN DE AMOR (debe durar aprox 30-40 segundos) -->
+      <source src="./mi_perdición.mp3" type="audio/mp3" />
+    </audio>
 
     <script>
-      // Función para calcular el tiempo desde la fecha de inicio del noviazgo
-      function actualizarContador() {
-        // Fecha de inicio: 13 de noviembre de 2021
-        const fechaInicio = new Date(2021, 10, 13); // Mes es 0-indexado, 10 = noviembre
+      // CAMBIO DE ESCENAS
+      const scenes = document.querySelectorAll(".scene");
+      let current = 0;
+      let sceneInterval;
+      let totalScenes = scenes.length;
+      let timesLooped = 0;
+
+      sceneInterval = setInterval(() => {
+        scenes[current].classList.remove("active");
+        current = (current + 1) % scenes.length;
+
+        // Detectar cuando se completa un ciclo
+        if (current === 0) {
+          timesLooped++;
+        }
+
+        // Después de mostrar todas las escenas una vez, mostrar la cuenta regresiva
+        if (timesLooped >= 1 && current === 0) {
+          clearInterval(sceneInterval);
+          mostrarCuentaRegresiva();
+          // Mostrar la foto después de 4 segundos
+          setTimeout(() => {
+            document.getElementById("photoContainer").classList.add("show");
+            const music = document.getElementById("music");
+            music.pause();
+          }, 4000);
+        } else {
+          scenes[current].classList.add("active");
+        }
+      }, 4000);
+
+      // FUNCIÓN PARA MOSTRAR CUENTA REGRESIVA
+      function mostrarCuentaRegresiva() {
+        const countdownDiv = document.getElementById("countdown");
+        const fechaNovio = new Date(2021, 10, 13); // 13/11/2021 (mes es 0-indexado)
         const ahora = new Date();
 
-        // Calcular diferencia en milisegundos
-        const diferencia = ahora - fechaInicio;
+        const diferencia = ahora - fechaNovio;
 
-        // Convertir a unidades
-        const segundosTotales = Math.floor(diferencia / 1000);
-        const minutosTotales = Math.floor(segundosTotales / 60);
-        const horasTotales = Math.floor(minutosTotales / 60);
-        const diasTotales = Math.floor(horasTotales / 24);
-
-        // Calcular valores para mostrar (con módulo para no exceder)
-        const dias = diasTotales;
-        const horas = horasTotales % 24;
-        const minutos = minutosTotales % 60;
-        const segundos = segundosTotales % 60;
-
-        // Actualizar DOM
-        document.getElementById("dias").textContent = dias;
-        document.getElementById("horas").textContent = String(horas).padStart(
-          2,
-          "0",
+        // Convertir a días, horas, minutos, segundos
+        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        const horas = Math.floor(
+          (diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
         );
-        document.getElementById("minutos").textContent = String(
-          minutos,
-        ).padStart(2, "0");
-        document.getElementById("segundos").textContent = String(
-          segundos,
-        ).padStart(2, "0");
+        const minutos = Math.floor(
+          (diferencia % (1000 * 60 * 60)) / (1000 * 60),
+        );
+        const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+        countdownDiv.innerHTML = `${dias} días, ${horas}h, ${minutos}m, ${segundos}s juntos 💕`;
+        countdownDiv.classList.add("show");
       }
 
-      // Actualizar el contador al cargar la página
-      actualizarContador();
+      // CORAZONES FLOTANDO SUAVES
+      function crearCorazon() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.bottom = "-20px";
+        heart.style.fontSize = Math.random() * 15 + 15 + "px";
+        heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+        document.body.appendChild(heart);
 
-      // Actualizar cada segundo
-      setInterval(actualizarContador, 1000);
+        setTimeout(() => heart.remove(), 6000);
+      }
+
+      setInterval(crearCorazon, 800);
     </script>
   </body>
 </html>
