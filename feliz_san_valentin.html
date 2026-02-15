@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Para el Amor de mi Vida ❤️</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        background: linear-gradient(
+          135deg,
+          #ff9a9e 0%,
+          #fad0c4 50%,
+          #ffecd2 100%
+        );
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Sección de texto superior */
+      .texto-superior {
+        position: absolute;
+        top: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        z-index: 10;
+        max-width: 90%;
+        animation: aparecer 3s ease-in-out;
+      }
+
+      .titulo {
+        font-size: 1.5rem;
+        color: #d63384;
+        font-weight: bold;
+        margin-bottom: 15px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .poema {
+        font-size: 1rem;
+        color: #c2185b;
+        line-height: 1.8;
+        font-style: italic;
+        margin-bottom: 15px;
+      }
+
+      .firma {
+        font-size: 1.3rem;
+        color: #e91e63;
+        font-weight: bold;
+        margin-top: 15px;
+      }
+
+      @keyframes aparecer {
+        0% {
+          opacity: 0;
+          transform: translateX(-50%) translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0);
+        }
+      }
+
+      /* Contenedor del árbol */
+      .arbol-container {
+        flex: 1;
+        position: relative;
+        width: 100%;
+        height: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Tronco del árbol */
+      .tronco {
+        position: absolute;
+        bottom: 5%;
+        width: 30px;
+        height: 150px;
+        background: linear-gradient(90deg, #8b4513 0%, #a0522d 100%);
+        border-radius: 15px;
+        box-shadow: inset -2px 0 5px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Corazones que caen */
+      .corazon {
+        position: absolute;
+        font-size: 2rem;
+        opacity: 0.9;
+        animation: caer 3s infinite;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      }
+
+      @keyframes caer {
+        0% {
+          transform: translateY(-400px) rotate(0deg) scale(1);
+          opacity: 1;
+        }
+        70% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(400px) rotate(360deg) scale(0.5);
+          opacity: 0;
+        }
+      }
+
+      /* Diferentes delays para que caigan en secuencia */
+      .corazon:nth-child(1) {
+        animation-delay: 0s;
+        left: -50px;
+      }
+      .corazon:nth-child(2) {
+        animation-delay: 0.2s;
+        left: -30px;
+      }
+      .corazon:nth-child(3) {
+        animation-delay: 0.4s;
+        left: -10px;
+      }
+      .corazon:nth-child(4) {
+        animation-delay: 0.6s;
+        left: 10px;
+      }
+      .corazon:nth-child(5) {
+        animation-delay: 0.8s;
+        left: 30px;
+      }
+      .corazon:nth-child(6) {
+        animation-delay: 1s;
+        left: 50px;
+      }
+      .corazon:nth-child(7) {
+        animation-delay: 1.2s;
+        left: -40px;
+      }
+      .corazon:nth-child(8) {
+        animation-delay: 1.4s;
+        left: -20px;
+      }
+      .corazon:nth-child(9) {
+        animation-delay: 1.6s;
+        left: 20px;
+      }
+      .corazon:nth-child(10) {
+        animation-delay: 1.8s;
+        left: 40px;
+      }
+      .corazon:nth-child(11) {
+        animation-delay: 2s;
+        left: -60px;
+      }
+      .corazon:nth-child(12) {
+        animation-delay: 2.2s;
+        left: 60px;
+      }
+
+      /* Contador en el borde inferior */
+      .contador-container {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        z-index: 20;
+      }
+
+      .contador-titulo {
+        font-size: 0.9rem;
+        color: #d63384;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .contador {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .tiempo-item {
+        text-align: center;
+      }
+
+      .tiempo-numero {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #e91e63;
+        display: block;
+      }
+
+      .tiempo-label {
+        font-size: 0.8rem;
+        color: #c2185b;
+        font-weight: 600;
+        margin-top: 5px;
+      }
+
+      @media (max-width: 768px) {
+        .titulo {
+          font-size: 1.2rem;
+        }
+
+        .poema {
+          font-size: 0.9rem;
+        }
+
+        .contador-container {
+          padding: 15px 20px;
+          bottom: 20px;
+        }
+
+        .tiempo-numero {
+          font-size: 1.5rem;
+        }
+
+        .tiempo-label {
+          font-size: 0.7rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sección de texto superior con animación -->
+    <div class="texto-superior">
+      <div class="titulo">Para el amor de mi vida</div>
+      <div class="poema">
+        Si pudiera elegir un lugar seguro<br />
+        sería a tu lado<br />
+        <br />
+        Cuanto más tiempo estoy contigo<br />
+        más te amo
+      </div>
+      <div class="firma">Te amo gorda! ❤️</div>
+    </div>
+
+    <!-- Contenedor principal del árbol -->
+    <div class="arbol-container">
+      <!-- Tronco del árbol -->
+      <div class="tronco"></div>
+
+      <!-- Corazones que caen -->
+      <div class="corazon">❤️</div>
+      <div class="corazon">❤️</div>
+      <div class="corazon">❤️</div>
+      <div class="corazon">❤️</div>
+      <div class="corazon">❤️</div>
+      <div class="corazon">❤️</div>
+      <div class="corazon">❤️</div>
+      <div class="corazon">❤️</div>
+      <div class="corazon">❤️</div>
+      <div class="corazon">❤️</div>
+      <div class="corazon">❤️</div>
+      <div class="corazon">❤️</div>
+    </div>
+
+    <!-- Contador de noviazgo en el borde inferior -->
+    <div class="contador-container">
+      <div class="contador-titulo">Juntos desde:</div>
+      <div class="contador">
+        <div class="tiempo-item">
+          <span class="tiempo-numero" id="dias">0</span>
+          <div class="tiempo-label">Días</div>
+        </div>
+        <div class="tiempo-item">
+          <span class="tiempo-numero" id="horas">0</span>
+          <div class="tiempo-label">Horas</div>
+        </div>
+        <div class="tiempo-item">
+          <span class="tiempo-numero" id="minutos">0</span>
+          <div class="tiempo-label">Minutos</div>
+        </div>
+        <div class="tiempo-item">
+          <span class="tiempo-numero" id="segundos">0</span>
+          <div class="tiempo-label">Segundos</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Función para calcular el tiempo desde la fecha de inicio del noviazgo
+      function actualizarContador() {
+        // Fecha de inicio: 13 de noviembre de 2021
+        const fechaInicio = new Date(2021, 10, 13); // Mes es 0-indexado, 10 = noviembre
+        const ahora = new Date();
+
+        // Calcular diferencia en milisegundos
+        const diferencia = ahora - fechaInicio;
+
+        // Convertir a unidades
+        const segundosTotales = Math.floor(diferencia / 1000);
+        const minutosTotales = Math.floor(segundosTotales / 60);
+        const horasTotales = Math.floor(minutosTotales / 60);
+        const diasTotales = Math.floor(horasTotales / 24);
+
+        // Calcular valores para mostrar (con módulo para no exceder)
+        const dias = diasTotales;
+        const horas = horasTotales % 24;
+        const minutos = minutosTotales % 60;
+        const segundos = segundosTotales % 60;
+
+        // Actualizar DOM
+        document.getElementById("dias").textContent = dias;
+        document.getElementById("horas").textContent = String(horas).padStart(
+          2,
+          "0",
+        );
+        document.getElementById("minutos").textContent = String(
+          minutos,
+        ).padStart(2, "0");
+        document.getElementById("segundos").textContent = String(
+          segundos,
+        ).padStart(2, "0");
+      }
+
+      // Actualizar el contador al cargar la página
+      actualizarContador();
+
+      // Actualizar cada segundo
+      setInterval(actualizarContador, 1000);
+    </script>
+  </body>
+</html>
